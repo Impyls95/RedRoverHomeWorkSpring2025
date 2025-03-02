@@ -25,6 +25,10 @@ public class Employee {
         this.salaryPerDay = salaryPerDay;
     }
 
+    public double getSalaryPerDay() {
+        return this.salaryPerDay;
+    }
+
     public void setSex(String sex) {
         this.sex = sex;
     }

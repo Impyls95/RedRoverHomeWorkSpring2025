@@ -10,19 +10,29 @@ public class Main {
                     "\nРабочих дней: " + month.getWorkDaysCount());
         }
 
-        Employee Dmitry = new Employee("Дмитрий", 300);
+        Employee dmitry = new Employee("Дмитрий", 300);
 
         Month[] firstQuartetMonthArr = {MonthUtils.getJanuary(), MonthUtils.getFebruary(), MonthUtils.getMarch()};
-        double salaryForFirstQuartetDmitry = Dmitry.getSalary(firstQuartetMonthArr);
+        double salaryForFirstQuartetDmitry = dmitry.getSalary(firstQuartetMonthArr);
         System.out.println("Зарплата Дмитрия за первый квартал: " + salaryForFirstQuartetDmitry);
 
-        Manager Andrey = new Manager("Андрей", 45, "Male", 350, 7);
-        double salaryForFirstQuartetAndrey = Andrey.getSalary(firstQuartetMonthArr);
+        Manager andrey = new Manager("Андрей", 45, "Male", 350, 7);
+        double salaryForFirstQuartetAndrey = andrey.getSalary(firstQuartetMonthArr);
         System.out.println("Зарплата Андрея за первый квартал: " + salaryForFirstQuartetAndrey);
 
-        Dmitry.setAge(31);
-        Dmitry.setSex("Male");
-        Manager managerDmitry = Dmitry.convertToManager(5);
+        dmitry.setAge(31);
+        dmitry.setSex("Male");
+        Manager managerDmitry = dmitry.convertToManager(5);
         System.out.println(managerDmitry.getSalary(firstQuartetMonthArr));
+
+        Director aleksandr = new Director("Александр", 40, "male", 600, 15);
+        System.out.println(aleksandr.getSalary(firstQuartetMonthArr));
+
+        Employee[] employeesArr = {dmitry, andrey, aleksandr};
+        double totalSalaryPerDay = SalaryUtils.getTotalSalaryPerDay(employeesArr);
+        System.out.println(totalSalaryPerDay);
+
+        double totalSalaryFirstQuartet = SalaryUtils.getTotalSalary(employeesArr, firstQuartetMonthArr);
+        System.out.println(totalSalaryFirstQuartet);
     }
 }
